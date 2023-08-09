@@ -1,0 +1,20 @@
+
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+{% include 'header.html' %}
+<div class="container-fluid gx-0 bg-light">
+    <div class="container-fluid gx-0">
+        <div class="text-center text-white py-3 bg-dark">
+            <h1 style="font-family: 'Roboto', sans-serif;" class="display-1">Suggest a Cafe</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row py-5">
+          <div class="col-lg-8 col-md-10 mx-auto" style="* {margin-top: 20px;}">
+            {{ wtf.quick_form(form, novalidate=True, button_map={'submit':'primary'}) }}
+          </div>
+        </div>
+    </div>
+</div>
+{% include 'footer.html' %}
+{% endblock %}

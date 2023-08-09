@@ -1,0 +1,58 @@
+{% include "header.html" %}
+<div class="container-fluid gx-0 bg-light">
+    <div class="container-fluid gx-0">
+        <div class="text-center text-white py-3 bg-dark">
+            <h1 style="font-family: 'Roboto', sans-serif;" class="display-1">{{cafe.name}}</h1>
+            <p class="display-6">{{cafe.location}}</p>
+            <p><a href="{{cafe.map_url}}" class="link-light link-opacity-50 link-underline-opacity-25 link-underline-opacity-75-hover link-opacity-100-hover">Map URL</a></p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row text-center pt-5 py-4">
+            <h2>This venue has...</h2>
+            {% if cafe.has_sockets == 1 %}
+            <div class="col-sm text-center pt-3 pb-5">
+                <i class="ph ph-plug-charging" style="font-size: 30px"></i>
+                <h5>Sockets</h5>
+                <p>Never worry about your device battery being flat</p>
+            </div>
+            {% endif %}
+            {% if cafe.has_toilet == 1 %}
+            <div class="col-sm text-center pt-3 pb-5">
+                <i class="ph ph-toilet-paper" style="font-size: 30px"></i>
+                <h5>Restrooms</h5>
+                <p>This venue has restrooms</p>
+            </div>
+            {% endif %}
+            {% if cafe.has_wifi == 1 %}
+            <div class="col-sm text-center pt-3 pb-5">
+                <i class="ph ph-wifi-high" style="font-size: 30px"></i>
+                <h5>Public Wi-Fi</h5>
+                <p>Free Wi-Fi for Everyone!</p>
+            </div>
+            {% endif %}
+        </div>
+        <hr>
+        <div class="row text-center">
+            <div class="col-sm">
+                <h2><strong>{{cafe.seats}} Seats</strong></h2>
+            </div>
+            <div class="col-sm">
+                <h2><strong>{{cafe.coffee_price}} Average coffee price</strong></h2>
+            </div>
+        </div>
+        <hr>
+        <div class="row py-5 mt-5">
+            <div class="col-sm text-center">
+                <h2>Can I take calls?</h2>
+                {% if cafe.can_take_calls == 1%}
+                <h2>Yes!</h2>
+                {% endif %}
+                {% if cafe.can_take_calls == 0%}
+                <h2>No</h2>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% include "footer.html" %}

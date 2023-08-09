@@ -1,0 +1,62 @@
+{% include "header.html" %}
+    <div class="container-fluid gx-0 bg-light">
+    <div class="container-fluid gx-0">
+        <div class="text-center text-white py-3 bg-dark">
+            {% if not locate %}
+            <h1 style="font-family: 'Roboto', sans-serif;" class="display-1">Cafes</h1>
+            <p class="display-6">Take a look at all the cafes in London</p>
+            {% endif %}
+            {% if locate %}
+            <h1 style="font-family: 'Roboto', sans-serif;" class="display-1">{{location}}</h1>
+            <p class="display-6">Take a look at all the cafes in {{location}}</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="container">
+        {% for cafe in cafes%}
+        <div class="row my-5">
+            <div class="col-sm">
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="d-flex">
+                            <a href="{{ url_for('show_cafe', index=cafe.id) }}" style="text-decoration: none; color: inherit" class="link-underline link-underline-opacity-0 link-underline-opacity-75-hover">
+                                <h3>{{cafe.name}}</h3>
+                            </a>
+                            <a href="{{ url_for('get_cafes_at_location', loc=cafe.location) }}" style="text-decoration: none" class="pt-2 mx-3 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">
+                                <span class="text-muted"><em>{{cafe.location}}</em></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <h2>{{cafe.coffee_price}}</h2>
+                    </div>
+                </div>
+                <div class="container row w-25">
+                    {% if cafe.has_sockets == 1 %}
+                    <div class="col-sm pt-3 px-0" style="padding-right: 5px">
+                        <i class="ph ph-plug-charging" style="font-size: 30px"></i>
+                    </div>
+                    {% endif %}
+                    {% if cafe.has_toilet == 1 %}
+                    <div class="col-sm pt-3 px-0" style="padding: 0px 5px">
+                        <i class="ph ph-toilet-paper" style="font-size: 30px"></i>
+                    </div>
+                    {% endif %}
+                    {% if cafe.has_wifi == 1 %}
+                    <div class="col-sm pt-3 px-0" style="padding: 0px 5px">
+                        <i class="ph ph-wifi-high" style="font-size: 30px"></i>
+                    </div>
+                    {% endif %}
+                </div>
+                </div>
+            <div class="col-sm text-center">
+                <img src="{{cafe.img_url}}" style="height: 25vh">
+            </div>
+        </div>
+        <hr>
+        {% endfor %}
+    </div>
+    </div>
+{% include "footer.html" %}

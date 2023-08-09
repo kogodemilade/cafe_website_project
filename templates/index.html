@@ -1,0 +1,71 @@
+{% include "header.html" %}
+<!-- Page Header-->
+<header
+  class="bg-image"
+  style="background-image: url('../static/assets/img/homepage_img.jpg');
+  background-repeat: no-repeat;
+  background-size: cover, contain;
+  height: 100vh;"
+>
+    <div class="container-fluid row gx-5 gx-lg-5 justify-content-center pb-0 mx-0">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading text-white mt-5">
+          <h1 class="mt-5 pt-5 display-1 text-center" style="font-family: 'Roboto', sans-serif;">What's better than Work & Coffee?</h1>
+          <h3 class="subheading my-3 lead text-center">Find the best places to work with your team</h3>
+        </div>
+        <div class="mt-5 mb-3 pt-4 text-white container text-center">
+          <a href="{{ url_for('get_all_cafes') }}" type="button" class="btn btn-lg btn-outline-light mb-3 justify-content-center">
+            Explore Cafes
+          </a>
+          <p class="text-center pt-2 text-light">Discovered a new place? <a class="link-underline-light link-offset-1 link-light" href="{{ url_for('post_new_cafe') }}">Suggest now</a> and our team would get back to you within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+</header>
+<div class="container-fluid my-5 pt-3">
+  <div class="row my-4">
+    <div class="col-sm text-center">
+      <i class="ph ph-share-network" style="font-size: 50px"></i>
+      <h3 class="text-center pt-2">Network</h3>
+      <p class="text-center">Business? Football? Politics? Connect with <em>like-minded</em> people from all aspects of life </p>
+    </div>
+    <div class="col-sm text-center">
+      <i class="ph ph-user-focus" style="font-size: 50px"></i>
+      <h3 class="text-center pt-2">Focus</h3>
+      <p class="text-center">Looking for a noiseless place? Increase <strong>focus</strong> and <strong>creativity</strong> with the power of silence... and coffee of course.</p>
+    </div>
+    <div class="col-sm text-center">
+      <i class="ph ph-bluetooth-connected" style="font-size: 50px"></i>
+      <h3 class="text-center pt-2">Connect</h3>
+      <p class="text-center">Connect with your team(s), boost productivity and meet deadlines!</p>
+    </div>
+  </div>
+  <div class="row container-fluid py-5 bg-secondary">
+    <div class="col-sm pt-5">
+      <blockquote class="blockquote text-center">
+        <p class="mb-0" style="font-family: 'Open Sans', sans-serif;">Networking is not about just connecting people. It's about connecting people with people, people with ideas, and people with opportunities.</p>
+      </blockquote>
+      <footer class="blockquote-footer">
+        <cite title="Source Title" class="text-white">Michele Jennae</cite>
+      </footer>
+    </div>
+  </div>
+  <div class="row py-3">
+    <div class="col-sm text-center mt-3">
+      <img src="static/assets/demo-1.jpg" style="height: 150px; width: 150px"  class="rounded-circle">
+      <h4 class="pt-4">Zainab Wycoff</h4>
+      <p>"Work.IO is the best service for networking and meeting new people."</p>
+    </div>
+    <div class="col-sm text-center mt-3">
+      <img src="static/assets/demo-2.jpg" style="height: 150px; width: 150px"  class="rounded-circle">
+      <h4 class="pt-4">Sofiyah Lemangovich</h4>
+      <p>"Work.IO is the best service for networking and meeting new people."</p>
+    </div>
+    <div class="col-sm text-center mt-3">
+      <img src="static/assets/demo-3.jpg" style="height: 150px; width: 150px"  class="rounded-circle">
+      <h4 class="pt-4">Lamar Usyk</h4>
+      <p>"Work.IO is the best service for networking and meeting new people."</p>
+    </div>
+  </div>
+</div>
+{% include "footer.html" %}
