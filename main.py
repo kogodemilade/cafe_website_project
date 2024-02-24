@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, render_template, request
 from flask_bootstrap import Bootstrap
+import random
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, BooleanField, SelectField, IntegerField
@@ -16,7 +17,7 @@ db = SQLAlchemy()
 db.init_app(app)
 
 
-##CREATE TABLE
+# CREATE TABLE
 class Cafe(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250), unique=True, nullable=False)
@@ -144,7 +145,7 @@ def patch_new_price(cafe_id):
     else:
         return jsonify(error={"Not Found": "Sorry a cafe with that id was not found in the database."}), 404
 
-# Deletes a cafe with a particular id. Change the request type to "Delete" in Postman
+# Deletes a cafe with a particular id.
 @app.route("/report-closed/<int:cafe_id>", methods=["DELETE"])
 def delete_cafe(cafe_id):
     api_key = request.args.get("api-key")
